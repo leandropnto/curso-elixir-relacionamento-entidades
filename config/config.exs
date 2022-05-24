@@ -5,12 +5,15 @@
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Config
 
 config :exmeal,
   ecto_repos: [Exmeal.Repo]
 
-config :exmeal, Exmeal.Repo, migration_primary_key: [type: :binary_id]
+# configuração para usar UUID
+config :exmeal, Exmeal.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
 
 # Configures the endpoint
 config :exmeal, ExmealWeb.Endpoint,
